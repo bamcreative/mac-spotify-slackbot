@@ -1,0 +1,13 @@
+{
+  "name": "spotifybot",
+  "version": "1.0.0",
+  "description": "A Slack bot to control Spotify",
+  "main": "spotifybot.js",
+  "repository": "https://github.com/bamcreative/mac-spotify-slackbot/",
+  "license": "MIT",
+  "dependencies": {
+    "botkit": "0.0.4",
+    "spotify-node-applescript": "^0.2.2",
+    "moment": "2.15.1"
+  }
+}

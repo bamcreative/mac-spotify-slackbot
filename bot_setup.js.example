@@ -1,0 +1,4 @@
+module.exports = {
+  token: 'your token goes here',
+  channel: 'channel name (no #)' // optional for track updates - if you can't find the channel id just leave this out
+}
