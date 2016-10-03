@@ -237,32 +237,6 @@ controller.hears(['quieter( \d+)?','volume down( \d+)?','shhh( \d+)?'],'direct_m
     });
 });
 
-controller.hears('set volume (.*)','direct_message,direct_mention,mention', function(bot, message) {
-    console.log('set vol', message);
-    var volume = message.match ? parseInt(message.match[1], 10) : undefined;
-    Spotify.getState(function(err, state){
-        var oldVolume = state.volume;
-
-        if(volume !== undefined && volume >= 0 && volume <= 100) {
-            Spotify.setVolume(volume, function(){
-                bot.reply(message, `Changed volume from ${oldVolume} to ${volume}`);
-            });
-            return;
-        }
-
-        bot.api.reactions.add({
-            timestamp: message.ts,
-            channel: message.channel,
-            name: 'trollface',
-        }, function(err,res) {
-            if (err) {
-                bot.botkit.log("Failed to add emoji reaction :(",err);
-            }
-        });
-        bot.reply(message, 'Volume can be set from 0-100');
-    });
-});
-
 
 controller.on('bot_channel_join', function(bot, message) {
     let inviterId = message.inviter;
